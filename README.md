@@ -2,6 +2,8 @@
 
 AI-Powered Price Discovery & Negotiation Platform for Local Vendors
 
+## 👥 Team BionX – Members & Roles - Disha Jain – Team Lead, AI/Architecture - Yukti Nahar – Frontend / UI - Akash Dhoundiyal – Backend / Integration - Priti Dode – Research / Data / Testing
+
 ## Overview
 
 The Multilingual Mandi platform enables seamless multilingual communication and AI-powered price discovery for local vendors, farmers, and small traders. It bridges language barriers and provides real-time market information to ensure fair trade practices.
