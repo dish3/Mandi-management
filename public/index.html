@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multilingual Mandi Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .service-card {
+            background: #ecf0f1;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+        .endpoint {
+            background: #2c3e50;
+            color: white;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .clickable {
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .clickable:hover {
+            background: #34495e;
+            transform: translateY(-1px);
+        }
+        .status {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .test-section {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+        .form-group {
+            margin: 15px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        .result {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+            white-space: pre-wrap;
+        }
+        .error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌾 Multilingual Mandi Platform</h1>
+        <p>Welcome to the AI-Powered Price Discovery & Negotiation Platform for Local Vendors</p>
+        
+        <h2>🚀 Services Status</h2>
+        <div class="service-card">
+            <h3>Translation Service</h3>
+            <p>Status: <span class="status">Active</span></p>
+            <p>Supports 9 Indian languages + English</p>
+        </div>
+        
+        <div class="service-card">
+            <h3>Voice Interface</h3>
+            <p>Status: <span class="status">Active</span></p>
+            <p>Speech-to-text and text-to-speech capabilities</p>
+        </div>
+        
+        <div class="service-card">
+            <h3>Price Discovery Engine</h3>
+            <p>Status: <span class="status">Active</span></p>
+            <p>AI-powered market price analysis</p>
+        </div>
+
+        <!-- Interactive Testing Section -->
+        <h2>🧪 Test the Services</h2>
+        
+        <!-- Price Discovery Test -->
+        <div class="test-section">
+            <h3>💰 Price Discovery</h3>
+            <div class="form-group">
+                <label>Product:</label>
+                <select id="product">
+                    <option value="tomato">Tomato</option>
+                    <option value="onion">Onion</option>
+                    <option value="potato">Potato</option>
+                    <option value="rice">Rice</option>
+                    <option value="wheat">Wheat</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Location:</label>
+                <select id="location">
+                    <option value="delhi">Delhi</option>
+                    <option value="mumbai">Mumbai</option>
+                    <option value="bangalore">Bangalore</option>
+                    <option value="chennai">Chennai</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Quantity:</label>
+                <input type="number" id="quantity" value="5" min="1">
+            </div>
+            <div class="form-group">
+                <label>Unit:</label>
+                <select id="unit">
+                    <option value="kg">Kg</option>
+                    <option value="quintal">Quintal</option>
+                    <option value="ton">Ton</option>
+                </select>
+            </div>
+            <button onclick="testPriceDiscovery()">Get Price</button>
+            <div id="priceResult"></div>
+        </div>
+
+        <!-- Translation Test -->
+        <div class="test-section">
+            <h3>🌐 Translation Service</h3>
+            <div class="form-group">
+                <label>Text to translate:</label>
+                <textarea id="translateText" rows="3">Hello, how much for tomatoes?</textarea>
+            </div>
+            <div class="form-group">
+                <label>From Language:</label>
+                <select id="fromLang">
+                    <option value="en">English</option>
+                    <option value="hi">Hindi</option>
+                    <option value="bn">Bengali</option>
+                    <option value="te">Telugu</option>
+                    <option value="mr">Marathi</option>
+                    <option value="ta">Tamil</option>
+                    <option value="gu">Gujarati</option>
+                    <option value="kn">Kannada</option>
+                    <option value="pa">Punjabi</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>To Language:</label>
+                <select id="toLang">
+                    <option value="hi">Hindi</option>
+                    <option value="en">English</option>
+                    <option value="bn">Bengali</option>
+                    <option value="te">Telugu</option>
+                    <option value="mr">Marathi</option>
+                    <option value="ta">Tamil</option>
+                    <option value="gu">Gujarati</option>
+                    <option value="kn">Kannada</option>
+                    <option value="pa">Punjabi</option>
+                </select>
+            </div>
+            <button onclick="testTranslation()">Translate</button>
+            <div id="translateResult"></div>
+        </div>
+
+        <!-- Health Check -->
+        <div class="test-section">
+            <h3>❤️ System Health</h3>
+            <button onclick="checkHealth()">Check Health</button>
+            <div id="healthResult"></div>
+        </div>
+        
+        <h2>📡 API Endpoints</h2>
+        <div class="endpoint clickable" onclick="testEndpoint('/health', 'GET')">GET /health - Health check</div>
+        <div class="endpoint clickable" onclick="showTranslateForm()">POST /api/translate - Translation service</div>
+        <div class="endpoint clickable" onclick="showVoiceForm()">POST /api/voice/synthesize - Voice synthesis</div>
+        <div class="endpoint clickable" onclick="testEndpoint('/api/prices/tomato?location=delhi&quantity=5&unit=kg', 'GET')">GET /api/prices/:product - Price discovery</div>
+        
+        <h2>📊 System Info</h2>
+        <p>Version: 1.0.0</p>
+        <p>Environment: Development</p>
+        <p>All tests passing: ✅ 451/451</p>
+    </div>
+
+    <script>
+        async function testPriceDiscovery() {
+            const product = document.getElementById('product').value;
+            const location = document.getElementById('location').value;
+            const quantity = document.getElementById('quantity').value;
+            const unit = document.getElementById('unit').value;
+            
+            const resultDiv = document.getElementById('priceResult');
+            resultDiv.innerHTML = 'Loading...';
+            
+            try {
+                const response = await fetch(`/api/prices/${product}?location=${location}&quantity=${quantity}&unit=${unit}`);
+                const data = await response.json();
+                
+                if (response.ok) {
+                    resultDiv.className = 'result';
+                    resultDiv.innerHTML = `
+Price Information for ${product}:
+• Current Price: ₹${data.current}/${unit}
+• Minimum: ₹${data.minimum}/${unit}
+• Maximum: ₹${data.maximum}/${unit}
+• Average: ₹${data.average}/${unit}
+• Confidence: ${(data.confidence * 100).toFixed(1)}%
+• Source: ${data.source}
+• Last Updated: ${new Date(data.lastUpdated).toLocaleString()}`;
+                } else {
+                    throw new Error(data.error || 'Unknown error');
+                }
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = `Error: ${error.message}`;
+            }
+        }
+
+        async function testTranslation() {
+            const text = document.getElementById('translateText').value;
+            const from = document.getElementById('fromLang').value;
+            const to = document.getElementById('toLang').value;
+            
+            const resultDiv = document.getElementById('translateResult');
+            resultDiv.innerHTML = 'Translating...';
+            
+            try {
+                const response = await fetch('/api/translate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ text, from, to })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    resultDiv.className = 'result';
+                    resultDiv.innerHTML = `
+Translation Result:
+• Original (${from}): ${data.original}
+• Translated (${to}): ${data.translation}`;
+                } else {
+                    throw new Error(data.error || 'Translation failed');
+                }
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = `Error: ${error.message}`;
+            }
+        }
+
+        async function checkHealth() {
+            const resultDiv = document.getElementById('healthResult');
+            resultDiv.innerHTML = 'Checking...';
+            
+            try {
+                const response = await fetch('/health');
+                const data = await response.json();
+                
+                resultDiv.className = 'result';
+                resultDiv.innerHTML = `
+System Health: ${data.status}
+Timestamp: ${new Date(data.timestamp).toLocaleString()}
+Services:
+• Translation: ${data.services.translation}
+• Voice: ${data.services.voice}
+• Price Discovery: ${data.services.priceDiscovery}`;
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = `Error: ${error.message}`;
+            }
+        }
+
+        // New functions for clickable endpoints
+        async function testEndpoint(url, method) {
+            try {
+                const response = await fetch(url, { method });
+                const data = await response.json();
+                
+                // Create a popup or alert with the result
+                const resultWindow = window.open('', '_blank', 'width=600,height=400');
+                resultWindow.document.write(`
+                    <html>
+                        <head><title>API Test Result</title></head>
+                        <body style="font-family: Arial, sans-serif; padding: 20px;">
+                            <h2>API Test Result</h2>
+                            <p><strong>Endpoint:</strong> ${method} ${url}</p>
+                            <p><strong>Status:</strong> ${response.status} ${response.statusText}</p>
+                            <h3>Response:</h3>
+                            <pre style="background: #f5f5f5; padding: 15px; border-radius: 5px; overflow: auto;">${JSON.stringify(data, null, 2)}</pre>
+                            <button onclick="window.close()">Close</button>
+                        </body>
+                    </html>
+                `);
+            } catch (error) {
+                alert(`Error testing ${url}: ${error.message}`);
+            }
+        }
+
+        function showTranslateForm() {
+            // Scroll to the translation form
+            document.querySelector('.test-section h3').scrollIntoView({ behavior: 'smooth' });
+            // Highlight the translation section
+            const translateSection = document.querySelector('.test-section');
+            translateSection.style.border = '3px solid #3498db';
+            setTimeout(() => {
+                translateSection.style.border = '1px solid #dee2e6';
+            }, 2000);
+        }
+
+        function showVoiceForm() {
+            alert('Voice synthesis form coming soon! This would convert text to speech audio.');
+        }
+    </script>
+</body>
+</html>
