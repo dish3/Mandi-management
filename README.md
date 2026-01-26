@@ -2,7 +2,12 @@
 
 AI-Powered Price Discovery & Negotiation Platform for Local Vendors
 
-## 👥 Team BionX – Members & Roles - Disha Jain – Team Lead, AI/Architecture - Yukti Nahar – Frontend / UI - Akash Dhoundiyal – Backend / Integration - Priti Dode – Research / Data / Testing
+# Team BionX – Contributors
+
+1. Disha Jain – Lead Developer & AI
+2. Yukti Nahar – UI/UX
+3. Akash Dhoundiyal – Backend Developer
+4. Priti Dode – Research / Testing
 
 ## Overview
 
