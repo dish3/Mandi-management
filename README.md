@@ -5,9 +5,9 @@ AI-Powered Price Discovery & Negotiation Platform for Local Vendors
 # Team BionX 
 
 1. Disha Jain 
-2. Yukti Nahar 
+2. Pradumn Tiwari
 3. Akash Dhoundiyal 
-4. Priti Dode 
+4. Sahil Pawar 
 
 ## Overview
 
